@@ -1,59 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Portal Startups 
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Projeto institucional simples desenvolvido em **Laravel**, com o objetivo de **registrar startups** e **exibir uma lista pública** dessas startups por meio de uma **API REST**.  
+O sistema foi criado para **fins educacionais e de prática**, simulando um cenário real de aplicações institucionais.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Tecnologias Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP 8.1 ou superior
+- Laravel 10 / 11
+- PostgreSQL
+- Tailwind CSS (via CDN)
+- JavaScript (Fetch API)
+- API REST com retorno em JSON
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📌 Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- Cadastro de startups via API REST
+- Listagem pública de startups
+- Atualização da listagem sem necessidade de recarregar a página
+- Interface simples, responsiva e institucional
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Configuração do Ambiente Local
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Este projeto pode ser executado localmente seguindo os passos descritos abaixo.  
+Certifique-se de possuir **PHP 8.1 ou superior**, **Composer** e **PostgreSQL** instalados em sua máquina.
 
-## Contributing
+**1. Clonagem do repositório**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Clone o repositório do projeto e acesse o diretório criado:
+git clone https://github.com/SilvaAndre07/Avaliacao-Pratica-Ti-2026
+cd ./Avaliacao-Pratica-Ti-2026/
 
-## Code of Conduct
+**2. Instalação das dependências**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Instale as dependências do projeto utilizando o Composer:
+composer install
 
-## Security Vulnerabilities
+**3. Criação do arquivo de ambiente**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Crie o arquivo de configuração do ambiente copiando o arquivo de exemplo:
+cp .env.example .env
 
-## License
+**4. Configuração do banco de dados**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Abra o arquivo `.env` e configure as variáveis de conexão com o banco de dados PostgreSQL conforme o seu ambiente local:
+
+DB_CONNECTION=pgsql  
+DB_HOST=127.0.0.1  
+DB_PORT=5432  
+DB_DATABASE=laravel
+DB_USERNAME=postgres  
+DB_PASSWORD=sua_senha
+
+Certifique-se de que o banco de dados informado já exista no PostgreSQL antes de continuar.
+
+**5. Geração da chave da aplicação**
+
+Gere a chave da aplicação Laravel:
+php artisan key:generate
+
+**6. Execução das migrações**
+
+Crie as tabelas necessárias no banco de dados:
+php artisan migrate
+
+**7. Dados de teste (opcional)**
+
+Caso deseje popular o banco de dados com registros fictícios para testes locais:
+php artisan db:seed
+
+**8. Inicialização do servidor**
+
+Inicie o servidor de desenvolvimento do Laravel:
+php artisan serve
+
+Após a inicialização, a aplicação estará disponível no endereço:
+
+http://localhost:8000
+
+## 🌐 Rotas da Aplicação
+
+A aplicação é composta por **rotas de front-end** e **rotas de API**, organizadas de forma a separar claramente a camada de visualização da camada de dados.
+
+### 🖥️ Rotas de Front-end (Web)
+
+As rotas de front-end são responsáveis pela exibição das páginas da aplicação e estão definidas no arquivo `routes/web.php`. Essas rotas retornam **views Blade** e são acessadas diretamente pelo navegador.
+
+Rotas disponíveis:
+- **/**  
+  Página inicial da aplicação. Exibe a listagem pública de startups cadastradas.
+- **/startups/create**  
+  Página destinada ao cadastro de novas startups.
+
+Essas rotas não realizam operações diretas no banco de dados, apenas consomem a API por meio de requisições assíncronas.
+
+---
+
+### 🔌 Rotas de API (REST)
+
+As rotas de API estão definidas no arquivo `routes/api.php` e são responsáveis pela **entrada e saída de dados** no formato **JSON**. Elas são consumidas pelo front-end utilizando JavaScript (Fetch API).
+
+Rotas disponíveis:
+- **GET /api/startups**  
+  Retorna a lista completa de startups cadastradas.
+- **POST /api/startups**  
+  Recebe os dados de uma startup e realiza o cadastro no banco de dados.
+
+As rotas de API são **stateless**, não utilizam sessões e não possuem autenticação por padrão, sendo adequadas para consumo por aplicações front-end ou integrações futuras.
+
+---
+
+## 🔐 LGPD — Lei Geral de Proteção de Dados Pessoais
+
+Este projeto realiza a coleta e o armazenamento de dados pessoais, especificamente o **endereço de e-mail de contato** informado no momento do cadastro da startup.
+
+Mesmo tratando-se de um projeto de caráter educacional, os princípios da **Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018)** são considerados como referência para o tratamento das informações.
+
+**Natureza dos dados coletados**
+
+O único dado pessoal coletado é o e-mail de contato da startup, utilizado para identificação e comunicação institucional. Nenhum outro dado pessoal sensível é solicitado ou armazenado pelo sistema.
+
+**Finalidade do tratamento**
+
+O e-mail de contato é coletado com a finalidade exclusiva de permitir o contato institucional com a startup cadastrada e de exibir uma informação básica de contato na listagem pública do sistema. Os dados não são utilizados para fins comerciais, publicitários ou de marketing.
+
+**Base legal para o tratamento**
+
+O tratamento dos dados pode se enquadrar nas seguintes bases legais previstas na LGPD:
+- Consentimento do titular dos dados, conforme Art. 7º, inciso I
+- Legítimo interesse do controlador, quando aplicável, conforme Art. 7º, inciso IX
+
+**Boas práticas adotadas**
+
+A aplicação adota o princípio da minimização de dados, coletando apenas as informações estritamente necessárias para o funcionamento do sistema. Os dados não são compartilhados com terceiros e não são utilizados para qualquer tipo de processamento automatizado ou envio de comunicações em massa.
+
+**Recomendações para ambiente de produção**
+
+Caso este projeto seja evoluído para uso em ambiente real, recomenda-se a adoção de medidas adicionais, como a disponibilização de uma Política de Privacidade clara, a possibilidade de solicitação de exclusão ou atualização dos dados pelo titular, a implementação de controles de acesso e a limitação do acesso aos dados apenas a usuários autorizados.
+
+**Aviso importante**
+
+Este projeto foi desenvolvido para fins educacionais e de prática. A utilização em ambiente de produção exige análise jurídica específica e adequações técnicas adicionais para plena conformidade com a LGPD.
+
+
